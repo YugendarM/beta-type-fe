@@ -1,9 +1,13 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import NavbarComponent from './components/NavbarComponent/NavbarComponent'
 
 const App = () => {
   return (
     <React.Fragment>
-      <p className='text-2xl text-blue-100 bg-blue-500'>App</p>
+      <BrowserRouter>
+        <NavbarComponent/>
+      </BrowserRouter>
     </React.Fragment>
   )
 }
