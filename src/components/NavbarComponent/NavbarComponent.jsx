@@ -21,7 +21,6 @@ const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const {pathname} = useLocation();
-  console.log(pathname)
 
   return (
     <React.Fragment>
