@@ -8,10 +8,12 @@ export default {
     extend: {
       colors:{
         betatypePrimaryBlue: "#009FFD",
+        betatypeSecondaryBlue: "#DFF4FF",
         betatypeDarkBlue: "#0A335C",
         betatypePrimaryYellow: "#FFEB99",
         betatypeDarkYellow: "#FFCC00",
-        betatypeBgHalfWhite: "#EEF4F6"
+        betatypeBgHalfWhite: "#EEF4F6",
+        betatypeBgViolet: "#5352C7"
       },
       boxShadow: {
         'button': '0px 3px 0px 0px #FFCC00',

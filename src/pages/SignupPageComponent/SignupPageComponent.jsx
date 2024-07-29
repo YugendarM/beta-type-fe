@@ -90,7 +90,7 @@ const SignupPageComponent = () => {
             <div className='w-full flex flex-col items-center'>
               <button type='submit' className='w-full text-xl font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Signup</button>
               <div className='flex items-center text-lg font-normal text-betatypeDarkBlue gap-3 py-3'>
-                <p>Already Registered?</p><Link className='border-b border-betatypeDarkBlue hover:text-betatypePrimaryBlue hover:border-betatypePrimaryBlue transition' to={"signup"}>Login</Link>
+                <p>Already Registered?</p><Link className='border-b border-betatypeDarkBlue hover:text-betatypePrimaryBlue hover:border-betatypePrimaryBlue transition' to={"/login"}>Login</Link>
               </div>
             </div>
           </form>

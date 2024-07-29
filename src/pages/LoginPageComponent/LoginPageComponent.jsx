@@ -76,9 +76,9 @@ const LoginPageComponent = () => {
             </div>
 
             <div className='w-full flex flex-col items-center'>
-              <button type='submit' className='w-full text-xl font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Login</button>
+              <button type='submit' className='w-full text-xl text-betatypeDarkBlue font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Login</button>
               <div className='flex items-center text-lg font-normal text-betatypeDarkBlue gap-3 py-3'>
-                <p>Not yet Registered?</p><Link className='border-b border-betatypeDarkBlue hover:text-betatypePrimaryBlue hover:border-betatypePrimaryBlue transition' to={"signup"}>Signup now</Link>
+                <p>Not yet Registered?</p><Link className='border-b border-betatypeDarkBlue hover:text-betatypePrimaryBlue hover:border-betatypePrimaryBlue transition' to={"/signup"}>Signup now</Link>
               </div>
             </div>
           </form>
