@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
-import HomePageComponent from '../../pages/HomePageComponent/HomePageComponent'
-import TypingTestPageComponent from '../../pages/TypingTestPageComponent/TypingTestPageComponent'
-import TypingTutorPageComponent from '../../pages/TypingTutorPageComponent/TypingTutorPageComponent'
-import ProfilePageComponent from '../../pages/ProfilePageComponent/ProfilePageComponent'
-import LoginPageComponent from '../../pages/LoginPageComponent/LoginPageComponent'
-import LeaderBoardPageComponent from '../../pages/LeaderBoardPageComponent/LeaderBoardPageComponent'
-import SignupPageComponent from '../../pages/SignupPageComponent/SignupPageComponent'
-import AboutPageComponent from '../../pages/AboutPageComponent/AboutPageComponent'
-import ContactPageComponent from '../../pages/ContactPageComponent/ContactPageComponent'
-import ErrorPageComponent from '../../pages/ErrorPageComponent/ErrorPageComponent'
 import betatypeLogo from "../../assets/betatype-logo.png"
 import defaultProfile from "../../assets/default_profile.png"
 import avatar from "../../assets/avatar.svg"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
+import RouterComponent from '../RouterComponent/RouterComponent'
 
 const NavbarComponent = () => {
 
@@ -106,19 +97,8 @@ const NavbarComponent = () => {
             }
           </div>
         </nav>
-
-      <Routes>
-        <Route exact path='/' element={<HomePageComponent/>}/>
-        <Route path='/typing-test' element={<TypingTestPageComponent/>}/>
-        <Route path='/typing-tutor' element={<TypingTutorPageComponent/>}/>
-        <Route path='/profile' element={<ProfilePageComponent/>}/>
-        <Route path='/leader-board' element={<LeaderBoardPageComponent/>}/>
-        <Route path='/login' element={<LoginPageComponent/>}/>
-        <Route path='/signup' element={<SignupPageComponent/>}/>
-        <Route path='/about' element={<AboutPageComponent/>}/>
-        <Route path='/contact' element={<ContactPageComponent/>}/>
-        <Route path='/*' element={<ErrorPageComponent/>}/>
-      </Routes>
+        <RouterComponent/>
+      
     </React.Fragment>
   )
 }

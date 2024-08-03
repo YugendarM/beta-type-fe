@@ -21,14 +21,14 @@ const FooterComponent = () => {
                 <div className='footer-resource-container'>
                     <h2 className='text-gray-700 text-lg font-bold'>Resources</h2>
                     <div className='footer-resources-link-container flex flex-col pt-3'>
-                        <Link className='text-base leading-8 text-gray-700 font-semibold hover:underline transition' to={"/typing-tutor"}>Learn</Link>
+                        <Link className='text-base leading-8 text-gray-700 font-semibold hover:underline transition' to={"/learn"}>Learn</Link>
                     </div>
                 </div>
                 <div className='footer-about-container'>
                     <h2 className='text-gray-700 text-lg font-bold'>About</h2>
                     <div className='footer-about-link-container flex flex-col pt-3'>
-                        <Link className='text-base leading-8 text-gray-700 font-semibold hover:underline transition' to={"/typing-tutor"}>About Betatype</Link>
-                        <Link className='text-base leading-8 text-gray-700 font-semibold hover:underline transition' to={"/typing-test"}>Contact Us</Link>
+                        <Link className='text-base leading-8 text-gray-700 font-semibold hover:underline transition' to={"/about"}>About Betatype</Link>
+                        <Link className='text-base leading-8 text-gray-700 font-semibold hover:underline transition' to={"/contact"}>Contact Us</Link>
                     </div>
                 </div>
             </div>
