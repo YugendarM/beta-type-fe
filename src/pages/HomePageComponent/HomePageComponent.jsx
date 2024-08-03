@@ -10,7 +10,7 @@ const HomePageComponent = () => {
         <div className='w-full max-w-[800px] flex flex-col items-center gap-6 px-5 md:px-0'>
           <h1 className='text-6xl text-betatypeDarkBlue font-bold text-center'>Hey, Yugendar</h1>
           <p className='text-center text-2xl opacity-60 font-semibold'>Wonderful to have you here! Together, we'll uncover all the mysteries of touch typing. Let's dive into the learning journey!</p>
-          <Link type='submit' className='w-full md:w-1/3 flex justify-center text-betatypeDarkBlue text-xl font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow text-center'>Continue Learning</Link>
+          <Link to={"/typing-tutor"} type='submit' className='w-full md:w-1/3 flex justify-center text-betatypeDarkBlue text-xl font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow text-center'>Continue Learning</Link>
         </div>
 
         <div className='md:px-10 w-full md:max-w-[1220px]'>
