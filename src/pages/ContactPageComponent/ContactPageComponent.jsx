@@ -23,12 +23,12 @@ const ContactPageComponent = () => {
   }
 
   return (
-    <React.Fragment>
-      <div className='flex flex-col items-center justify-center gap-3 w-full py-10'>
-        <h1 className='text-6xl text-betatypeDarkBlue font-bold'>Contact Us</h1>
-        <p className='text-xl text-betatypeDarkBlue'>Need support? Got a question? Just want to say hi?</p>
-        <p className='text-xl text-betatypeDarkBlue'>Please Feel free to write to us :)</p>
-        <form className='flex flex-col gap-5 w-full max-w-[500px] py-5' onSubmit={(event) => handleSubmit(event)}>
+    <div className='contact-page-container flex justify-center items-center h-[80vh]'>
+      <div className='contact-container flex flex-col items-center justify-center gap-3 w-full py-10 px-5 max-w-[500px]'>
+        <h1 className='contact-header text-6xl text-betatypeDarkBlue font-bold text-center'>Contact Us</h1>
+        <p className='text-xl text-betatypeDarkBlue text-center'>Need support? Got a question? Just want to say hi?</p>
+        <p className='text-xl text-betatypeDarkBlue text-center'>Please Feel free to write to us :)</p>
+        <form className='contact-form-container flex flex-col gap-5 w-full max-w-[500px] py-5' onSubmit={(event) => handleSubmit(event)}>
           <div 
             className={`bg-betatypeBgHalfWhite border-gray-300 rounded-lg px-4 py-3 border-2 focus-within:outline focus-within:outline-[2px] focus-within:outline-white focus-within:ring-[3px] focus-within:ring-betatypePrimaryBlue focus-within:ring-opacity-80`}
           >
@@ -60,7 +60,7 @@ const ContactPageComponent = () => {
           >
             <textarea
               name='message'
-              className='bg-inherit w-full text-xl focus:outline-none placeholder:text-betatypeDarkBlue placeholder:text-opacity-80' 
+              className='bg-inherit w-full text-xl focus:outline-none placeholder:text-betatypeDarkBlue placeholder:text-opacity-80 max-h-32' 
               placeholder="Your Message" 
               type='text' 
               onChange={(event) => handleChange(event)}
@@ -73,7 +73,7 @@ const ContactPageComponent = () => {
 
         </form>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 
