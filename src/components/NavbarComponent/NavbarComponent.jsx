@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import betatypeLogo from "../../assets/betatype-logo.png"
 import defaultProfile from "../../assets/default_profile.png"
@@ -6,21 +6,28 @@ import avatar from "../../assets/avatar.svg"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import RouterComponent from '../RouterComponent/RouterComponent'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserDetails } from '../../redux/user/userSlice'
+import axios from 'axios'
 
 const NavbarComponent = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const {pathname} = useLocation();
+  const userState = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
+  const {pathname} = useLocation()
 
   const closeMenu = () => {
     setIsMenuOpen(false)
     document.body.classList.remove('no-scroll')
   }
 
+  
+
   return (
     <React.Fragment>
-
         <nav className='w-full flex items-center justify-center py-5'>
             
           <div className='w-full max-w-[1220px] flex items-center justify-between md:px-10 px-5'>
@@ -37,10 +44,10 @@ const NavbarComponent = () => {
             </div>
 
             {
-              10<20 ? 
+              userState.data && userState.data.name ? 
               <div className=' md:flex justify-end hidden'>
                 <Link to={"/profile"} className=' flex items-center gap-2 justify-end rounded-full px-3 py-2 hover:bg-blue-50 transition'>
-                  <p className='text-xl font-semibold text-betatypeDarkBlue'>Yugendar</p> 
+                  <p className='text-xl font-semibold text-betatypeDarkBlue capitalize'>{userState.data && userState.data.name}</p> 
                   <img className='object-fill' alt="profile_doodle" src={avatar}/>
                 </Link>
               </div> 
@@ -78,11 +85,11 @@ const NavbarComponent = () => {
                     <Link to={"/leader-board"} className='text-lg font-semibold text-betatypeDarkBlue py-2 ' onClick={() => closeMenu()}>Leader Board</Link>
                   </div>
                   {
-                    10<20 ? 
+                    userState.data && userState.data.name? 
                     <div className='flex flex-col px-6 rounded-b-2xl pb-5'>
                       <div className=' flex flex-reverse items-start gap-2 rounded-full py-2 md:hover:bg-blue-50 transition'>
                         <img className='object-fill' alt="profile_doodle" src={avatar}/>
-                        <p className='text-xl font-semibold text-betatypeDarkBlue'>Yugendar</p> 
+                        <p className='text-xl font-semibold text-betatypeDarkBlue capitalize'>{userState.data && userState.data.name}</p> 
                       </div>
                       <Link className='text-lg font-semibold text-betatypeDarkBlue py-2' to={"/profile"} onClick={() => closeMenu()}>My Profile</Link>
                     </div>:
