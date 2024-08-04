@@ -27,8 +27,8 @@ const LoginPageComponent = () => {
 
   return (
     <React.Fragment>
-      <div className='w-full flex justify-center items-center h-[80vh] '>
-        <div className='w-full px-5 max-w-[500px] flex flex-col justify-center items-center gap-5'>
+      <div className='w-full flex justify-center h-[90vh] '>
+        <div className='w-full px-5 max-w-[500px] flex flex-col items-center gap-5'>
           <h1 className='text-betatypeDarkBlue text-6xl font-bold py-10'>Log in</h1>
           <div className='w-full flex flex-col items-center gap-4'>
             <button className='flex items-center justify-center rounded-lg py-2 gap-2 border-2 w-full border-betatypePrimaryBlue shadow-buttonBlue hover:shadow-buttonBlue_hover hover:transform hover:-translate-y-1 transition'>
