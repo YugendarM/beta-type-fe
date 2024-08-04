@@ -25,7 +25,7 @@ const ContactPageComponent = () => {
   return (
     <div className='contact-page-container flex justify-center items-center h-[80vh]'>
       <div className='contact-container flex flex-col items-center justify-center gap-3 w-full py-10 px-5 max-w-[500px]'>
-        <h1 className='contact-header text-6xl text-betatypeDarkBlue font-bold text-center'>Contact Us</h1>
+        <h1 className='contact-header text-6xl text-betatypeDarkBlue font-semibold text-center'>Contact Us</h1>
         <p className='text-xl text-betatypeDarkBlue text-center'>Need support? Got a question? Just want to say hi?</p>
         <p className='text-xl text-betatypeDarkBlue text-center'>Please Feel free to write to us :)</p>
         <form className='contact-form-container flex flex-col gap-5 w-full max-w-[500px] py-5' onSubmit={(event) => handleSubmit(event)}>
@@ -69,7 +69,7 @@ const ContactPageComponent = () => {
             />
           </div>
 
-          <button type='submit' className='w-full text-xl text-betatypeDarkBlue font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Send</button>
+          <button type='submit' className='w-full text-xl text-betatypeDarkBlue font-medium py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Send</button>
 
         </form>
       </div>

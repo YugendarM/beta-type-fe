@@ -11,24 +11,24 @@ const FooterComponent = () => {
         <div className='footer-top-container flex justify-between border-b border-b-black border-opacity-20 py-6'>
             <div className='footer-top-left-container flex flex-col md:flex-row items-start gap-8 md:gap-20'>
                 <div className='footer-typing-practice-container'>
-                    <h2 className='text-gray-700 text-lg font-bold'>Typing Practice</h2>
+                    <h2 className='text-gray-700 text-lg font-semibold'>Typing Practice</h2>
                     <div className='footer-typing-practice-link-container flex flex-col md:pt-3'>
-                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-semibold hover:underline transition' to={"/typing-tutor"}>Typing Tutor</Link>
-                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-semibold hover:underline transition' to={"/typing-test"}>Typing Test</Link>
-                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-semibold hover:underline transition' to={"/leader-board"}>Leader Board</Link>
+                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-medium hover:underline transition' to={"/typing-tutor"}>Typing Tutor</Link>
+                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-medium hover:underline transition' to={"/typing-test"}>Typing Test</Link>
+                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-medium hover:underline transition' to={"/leader-board"}>Leader Board</Link>
                     </div>
                 </div>
                 <div className='footer-resource-container'>
-                    <h2 className='text-gray-700 text-lg font-bold'>Resources</h2>
+                    <h2 className='text-gray-700 text-lg font-semibold'>Resources</h2>
                     <div className='footer-resources-link-container flex flex-col md:pt-3'>
-                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-semibold hover:underline transition' to={"/learn"}>Learn</Link>
+                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-medium hover:underline transition' to={"/learn"}>Learn</Link>
                     </div>
                 </div>
                 <div className='footer-about-container'>
-                    <h2 className='text-gray-700 text-lg font-bold'>About</h2>
+                    <h2 className='text-gray-700 text-lg font-semibold'>About</h2>
                     <div className='footer-about-link-container flex flex-col md:pt-3'>
-                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-semibold hover:underline transition' to={"/about"}>About Betatype</Link>
-                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-semibold hover:underline transition' to={"/contact"}>Contact Us</Link>
+                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-medium hover:underline transition' to={"/about"}>About Betatype</Link>
+                        <Link className='text-base text-opacity-80 leading-8 text-gray-700 font-medium hover:underline transition' to={"/contact"}>Contact Us</Link>
                     </div>
                 </div>
             </div>

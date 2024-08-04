@@ -15,7 +15,7 @@ const SignupPageComponent = () => {
     password: ""
   })
 
-  const userState = useSelector((state => state.user))
+  const userState = useSelector((state) => state.user)
   const dispatch = useDispatch();
 
   const handleSignup = async(event) => {
@@ -38,11 +38,11 @@ const SignupPageComponent = () => {
     }))
   }
 
-  useEffect(() => {
-    if(!userState.data.name){
-      window.location.href = "/"
-    }
-  })
+  // useEffect(() => {
+  //   if(!userState.data.name){
+  //     window.location.href = "/"
+  //   }
+  // })
 
   return (
     <React.Fragment>
@@ -50,13 +50,13 @@ const SignupPageComponent = () => {
         userState.loading ? <div className='h-[90vh] w-screen flex justify-center items-center'><div className='animate-spin h-20 w-20 border-4 border-t-betatypePrimaryBlue border-b-gray-300 rounded-full'></div></div> :
         <div className='w-full flex justify-center h-[90vh] '>
           <div className='w-full px-5 max-w-[500px] flex flex-col items-center gap-5'>
-            <h1 className='text-betatypeDarkBlue text-6xl font-bold py-10'>Sign up</h1>
+            <h1 className='text-betatypeDarkBlue text-6xl font-semibold py-10'>Sign up</h1>
             {/* <div className='w-full flex flex-col items-center gap-4'>
               <button className='flex items-center justify-center rounded-lg py-2 gap-2 border-2 w-full border-betatypePrimaryBlue shadow-buttonBlue hover:shadow-buttonBlue_hover hover:transform hover:-translate-y-1 transition'>
                 <FcGoogle className='text-2xl'/>
-                <p className='text-xl text-betatypeDarkBlue font-semibold'>Sing up with Google</p>
+                <p className='text-xl text-betatypeDarkBlue font-medium'>Sing up with Google</p>
               </button>
-              <p className='text-xl font-semibold text-betatypeDarkBlue'>or</p>
+              <p className='text-xl font-medium text-betatypeDarkBlue'>or</p>
             </div> */}
             <form className='w-full flex flex-col gap-8' onSubmit={(event) => handleSignup(event)}>
               <div 
@@ -108,7 +108,7 @@ const SignupPageComponent = () => {
               </div>
 
               <div className='w-full flex flex-col items-center'>
-                <button type='submit' className='w-full text-xl font-semibold py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Signup</button>
+                <button type='submit' className='w-full text-xl font-medium py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow'>Signup</button>
                 <div className='flex items-center text-lg font-normal text-betatypeDarkBlue gap-3 py-3'>
                   <p>Already Registered?</p><Link className='border-b border-betatypeDarkBlue hover:text-betatypePrimaryBlue hover:border-betatypePrimaryBlue transition' to={"/login"}>Login</Link>
                 </div>
