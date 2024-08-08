@@ -4,6 +4,16 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist:[
+    'betatypeKeyPurple',
+        'betatypeKeyGreen',
+        'betatypeKeyRed',
+        'betatypeKeyBlue',
+        'betatypeKeyPurpleShadow',
+        'betatypeKeyGreenShadow',
+        'betatypeKeyRedShadow',
+        'betatypeKeyBlueShadow',
+  ],
   theme: {
     extend: {
       colors:{
@@ -13,13 +23,25 @@ export default {
         betatypePrimaryYellow: "#FFEB99",
         betatypeDarkYellow: "#FFCC00",
         betatypeBgHalfWhite: "#EEF4F6",
-        betatypeBgViolet: "#5352C7"
+        betatypeBgViolet: "#5352C7",
+        betatypeKeyPurple: "#C9C8FF",
+        betatypeKeyGreen: "#ACF3C7",
+        betatypeKeyRed: "#FFBDCA",
+        betatypeKeyBlue: "#99E9E5",
+        betatypeKeyPurpleShadow: "#2C2B6B",
+        betatypeKeyGreenShadow: "#17713A",
+        betatypeKeyRedShadow: "#821729",
+        betatypeKeyBlueShadow: "#00635F",
       },
       boxShadow: {
         'button': '0px 3px 0px 0px #FFCC00',
         'button_hover': '0px 6px 0px 0px #FFCC00',
         'buttonBlue': '0px 3px 0px 0px #009FFD',
         'buttonBlue_hover': '0px 6px 0px 0px #009FFD',
+        'keyPurple': '0px 3px 0px 0px #2C2B6B',
+        'keyGreen': '0px 3px 0px 0px #17713A',
+        'keyRed': '0px 3px 0px 0px #821729',
+        'keyBlue': '0px 3px 0px 0px #00635F'
       },
       keyframes: {
         fall: {

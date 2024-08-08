@@ -31,7 +31,7 @@ const HomePageComponent = () => {
           </div>
           :
           <div className='w-full max-w-[800px] flex flex-col items-center gap-6 px-5 md:px-0'>
-            <h1 className='text-6xl text-betatypeDarkBlue font-semibold text-center capitalize'>Learn Touch Typing</h1>
+            <h1 className='text-4xl md:text-6xl text-betatypeDarkBlue font-semibold text-center capitalize'>Learn Touch Typing</h1>
             <p className='text-center text-2xl opacity-60 font-medium'>Enhance your typing skills with Betatype's typing tutor</p>
             <Link to={"/login"} type='submit' className='w-full md:w-1/3 flex justify-center text-betatypeDarkBlue text-xl font-medium py-2 rounded-lg transition shadow-button hover:transform hover:-translate-y-1 hover:shadow-button_hover bg-betatypePrimaryYellow border-2 border-betatypeDarkYellow text-center'>Start Learning</Link>
           </div>
