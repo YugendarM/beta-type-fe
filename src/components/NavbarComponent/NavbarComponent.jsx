@@ -24,6 +24,10 @@ const NavbarComponent = () => {
     document.body.classList.remove('no-scroll')
   }
 
+  useEffect(() => {
+    dispatch(getUserDetails())
+  }, [])
+
   
 
   return (
@@ -36,10 +40,10 @@ const NavbarComponent = () => {
             </Link>
 
             <div className='md:flex items-center justify-start hidden'>
-                <ul className='flex items-center justify-around'>
-                    <Link className={`${pathname === "/typing-tutor" ? "bg-betatypePrimaryBlue text-white" : "text-betatypeDarkBlue bg-white" } text-lg font-semibold rounded-full  px-4 py-3 transition hover:opacity-80`} to={"/typing-tutor"}>Typing Tutor</Link>
-                    <Link className={`${pathname === "/typing-test" ? "bg-betatypePrimaryBlue text-white" : "text-betatypeDarkBlue bg-white" }  text-lg font-semibold rounded-full  px-4 py-3 transition hover:opacity-80`} to={"/typing-test"}>Typing Test</Link>
-                    <Link className={`${pathname === "/leader-board" ? "bg-betatypePrimaryBlue text-white" : "text-betatypeDarkBlue bg-white" } text-lg font-semibold rounded-full  px-4 py-3 transition hover:opacity-80`} to={"/leader-board"}>Leader Board</Link>
+                <ul className='flex items-center justify-around lg:gap-10'>
+                    <Link className={`${pathname === "/typing-tutor" ? "bg-betatypePrimaryBlue text-white" : "text-betatypeDarkBlue bg-white" } text-lg font-semibold rounded-full px-3 py-3 transition hover:opacity-80`} to={"/typing-tutor"}>Typing Tutor</Link>
+                    <Link className={`${pathname === "/typing-test" ? "bg-betatypePrimaryBlue text-white" : "text-betatypeDarkBlue bg-white" }  text-lg font-semibold rounded-full px-3 py-3 transition hover:opacity-80`} to={"/typing-test"}>Typing Test</Link>
+                    <Link className={`${pathname === "/leader-board" ? "bg-betatypePrimaryBlue text-white" : "text-betatypeDarkBlue bg-white" } text-lg font-semibold rounded-full px-3 py-3 transition hover:opacity-80`} to={"/leader-board"}>Leader Board</Link>
                 </ul>
             </div>
 
