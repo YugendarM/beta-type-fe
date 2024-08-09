@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const AboutPageComponent = () => {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   return (
     <div className='flex justify-center py-5 md:py-10'>
       <div className='w-full max-w-[900px] px-5 md:px-10 flex flex-col items-center gap-10'>

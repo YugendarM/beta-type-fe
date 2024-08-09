@@ -11,11 +11,8 @@ const HomePageComponent = () => {
   const userState = useSelector((state) => state.user)
 
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(getUserDetails())
-    console.log(userState)
-    if(userState.data){
-      console.log( userState.data)
-    }
   }, [])
 
 

@@ -19,7 +19,6 @@ const LoginPageComponent = () => {
 
   const handleLogin = async(event) => {
     event.preventDefault()
-    console.log(userCredential)
     try {
         await dispatch(loginUser(userCredential)).unwrap();
         alert("User logged in successfully");

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import KeyComponent from '../../components/KeyComponent/KeyComponent'
 import keyboard from "../../assets/keyboard.svg"
 import hands from "../../assets/hands.svg"
 import { Link } from 'react-router-dom'
 
 const LearnPageComponent = () => {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+  
   return (
     <React.Fragment>
       <div className='w-full flex justify-center py-10'>
