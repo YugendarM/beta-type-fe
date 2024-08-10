@@ -41,7 +41,8 @@ export default {
         'keyPurple': '0px 3px 0px 0px #2C2B6B',
         'keyGreen': '0px 3px 0px 0px #17713A',
         'keyRed': '0px 3px 0px 0px #821729',
-        'keyBlue': '0px 3px 0px 0px #00635F'
+        'keyBlue': '0px 3px 0px 0px #00635F',
+        'custom': '0px 0px 40px rgba(0, 0, 0, 0.1), 0 0px 40px rgba(0, 0, 0, 0.08)',
       },
       keyframes: {
         fall: {
