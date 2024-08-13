@@ -32,6 +32,9 @@ export default {
         betatypeKeyGreenShadow: "#17713A",
         betatypeKeyRedShadow: "#821729",
         betatypeKeyBlueShadow: "#00635F",
+        betatypeScoreCardPink: "#ED81BA",
+        betatypeScoreCardOrange: "#FF9E31",
+
       },
       boxShadow: {
         'button': '0px 3px 0px 0px #FFCC00',

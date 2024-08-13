@@ -11,12 +11,14 @@ import SignupPageComponent from '../../pages/SignupPageComponent/SignupPageCompo
 import AboutPageComponent from '../../pages/AboutPageComponent/AboutPageComponent'
 import ContactPageComponent from '../../pages/ContactPageComponent/ContactPageComponent'
 import ErrorPageComponent from '../../pages/ErrorPageComponent/ErrorPageComponent'
+import TestResultPageComponent from '../../pages/TestResultPageComponent/TestResultPageComponent'
 
 const RouterComponent = () => {
   return (
     <Routes>
         <Route exact path='/' element={<HomePageComponent/>}/>
         <Route path='/typing-test' element={<TypingTestPageComponent/>}/>
+        <Route path='/typing-test/result' element={<TestResultPageComponent/>}/>
         <Route path='/typing-tutor' element={<TypingTutorPageComponent/>}/>
         <Route path='/learn' element={<LearnPageComponent/>}/>
         <Route path='/profile' element={<ProfilePageComponent/>}/>

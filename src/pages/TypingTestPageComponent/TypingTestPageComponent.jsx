@@ -2,16 +2,21 @@ import React, { useEffect, useState, useRef } from 'react';
 import { VscDebugRestart } from "react-icons/vsc";
 import TypingInterfaceComponent from '../../components/TypingInterfaceComponent/TypingInterfaceComponent';
 import { useTimer } from 'react-timer-hook';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAttemptReviewData } from '../../redux/testAttempt/testAttemptSlice';
+import { useNavigate } from 'react-router-dom';
 
 const ONE_MINUTE = 10
+const SPEED_WEIGHT = 6
+const ACCURACY_WEIGHT = 4
 
 const TypingTestPageComponent = () => {
   const [text, setText] = useState("");
   const [assessment, setAssessment] = useState("The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it a perfect practice tool for typing. As you type, focus on accuracy and speed. Remember to keep your hands positioned correctly on the keyboard, with your fingers resting on the home row keys. Typing is not just about speed; it is also about precision. Every keystroke should be deliberate and precise. Practice regularly to improve your muscle memory and typing skills. Over time, you will find yourself typing faster and with fewer errors. Stay patient and persistent, and you will see progress. Happy typing. The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it a perfect practice tool for typing. As you type, focus on accuracy and speed. Remember to keep your hands positioned correctly on the keyboard, with your fingers resting on the home row keys. Typing is not just about speed; it is also about precision. Every keystroke should be deliberate and precise. Practice regularly to improve your muscle memory and typing skills. Over time, you will find yourself typing faster and with fewer errors. Stay patient and persistent, and you will see progress. Happy typing. The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it a perfect practice tool for typing. As you type, focus on accuracy and speed. Remember to keep your hands positioned correctly on the keyboard, with your fingers resting on the home row keys. Typing is not just about speed; it is also about precision. Every keystroke should be deliberate and precise. Practice regularly to improve your muscle memory and typing skills. Over time, you will find yourself typing faster and with fewer errors. Stay patient and persistent, and you will see progress. Happy typing.".replaceAll(" ", '\u00A0')); // Example assessment
 
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
 
   const containerRef = useRef(null);
   
@@ -44,23 +49,19 @@ const TypingTestPageComponent = () => {
   }
 
   const handleExpiry = () => {
-    const wordsCount = text.split("\u00A0").length
-    console.log("wordsCount" + wordsCount)
-    const assessmentText = assessment.substring(0, text.length)
-    console.log("assessmentText" + assessmentText.length )
-    console.log("TExt length " + text.length)
+    const wordsCount = assessment.substring(0, text.length).split("\u00A0").length
     let correctCount = 0;
     text.split("").map((letter, index) => {
       if(letter === assessment.charAt(index)){
         correctCount++;
       }
     })
-    console.log("correctCount " + correctCount)
-    const accuracy = ((correctCount / text.length) * 100).toFixed(0);
-    console.log("accuracy" + accuracy + "%")
-    const betaScore = 0
+    const accuracy = ((correctCount / text.length) * 100).toFixed(1);
+    const betaScore = (wordsCount * SPEED_WEIGHT) + (accuracy * ACCURACY_WEIGHT) 
     dispatch(setAttemptReviewData({speed: wordsCount, accuracy: accuracy, betaScore: betaScore}))
-    window.location.href = "/typing-test/result"
+    setTimeout(() => {
+      navigate("/typing-test/result")
+    }, 5000)
   }
 
   const expiryTimestamp = new Date();

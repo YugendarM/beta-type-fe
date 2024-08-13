@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const testAttemptSlice = createSlice({
-    name: 'testAttempt',
+    name: "testAttempt",
     initialState: {
         loading: false,
         data: {},
         error: ""
     },
     reducers: {
-        setAttemptReviewData(state, action) {
+        setAttemptReviewData: (state, action)=> {
             state.data = action.payload
+            state.loading = true
         }
     }
 })
