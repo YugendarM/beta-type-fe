@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ScoreCardComponent from '../../components/ScoreCardComponent/ScoreCardComponent'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsersBasedOnTopBetaScore, getUsersBasedOnTopSpeed } from '../../redux/scoreBoard/scoreBoardSlice'
+import ScoreBoardLoadingComponent from '../../components/ScoreBoardLoadingComponent/ScoreBoardLoadingComponent'
 
 const LeaderBoardPageComponent = () => {
 
@@ -53,13 +54,18 @@ const LeaderBoardPageComponent = () => {
           <p className='w-1/6 text-center'>Beta Score</p>
         </div>
 
-        <div>
-          {
-            scoreBoardData && scoreBoardData.data.length > 0 && scoreBoardData.data.map((user, index) => (
-              <ScoreCardComponent user={user} key={index} index={index}/>
-            ))
-          }
-        </div>
+        {
+          scoreBoardData && scoreBoardData.loading ? 
+            <ScoreBoardLoadingComponent/>
+          :
+          <div>
+            {
+              scoreBoardData && scoreBoardData.data.length > 0 && scoreBoardData.data.map((user, index) => (
+                <ScoreCardComponent user={user} key={index} index={index}/>
+              ))
+            }
+          </div>
+        }
       </div>
     </div>
   )
