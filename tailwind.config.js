@@ -30,6 +30,7 @@ export default {
         betatypeKeyBlue: "#99E9E5",
         betatypeKeyYellow: "#FFEB99",
         betatypeKeyOrange: "#FFD599",
+        
         betatypeKeyPurpleShadow: "#2C2B6B",
         betatypeKeyGreenShadow: "#17713A",
         betatypeKeyRedShadow: "#821729",

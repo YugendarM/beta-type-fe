@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./user/userSlice";
-import testAttemptSlice from "./testAttempt/testAttemptSlice";
+import testAttemptReducer from "./testAttempt/testAttemptSlice";
 import { combineReducers } from "@reduxjs/toolkit";
 import {persistReducer} from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import scoreBoardReducer from "./scoreBoard/scoreBoardSlice";
 
 
 const persistConfig = {
@@ -15,7 +16,8 @@ const persistConfig = {
 
 const combinedReducer = combineReducers({
     user: userReducer,
-    testAttempt: testAttemptSlice
+    testAttempt: testAttemptReducer,
+    scoreBoard: scoreBoardReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer)
