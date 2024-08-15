@@ -3,6 +3,8 @@ import KeyComponent from '../../components/KeyComponent/KeyComponent'
 import keyboard from "../../assets/keyboard.svg"
 import hands from "../../assets/hands.svg"
 import { Link } from 'react-router-dom'
+import enLeft from "../../assets/en_left.svg"
+import enRight from "../../assets/en_right.svg"
 
 const LearnPageComponent = () => {
 
@@ -34,18 +36,12 @@ const LearnPageComponent = () => {
 
           <div className='home-row-section-container flex flex-col gap-5'>
             <h1 className='text-3xl md:text-5xl font-semibold text-betatypeDarkBlue text-center'>Home row position</h1>
-            <div className='home-row-key-container flex items-center md:gap-5 justify-center w-full'>
+            <div className='home-row-key-container flex items-center gap-5 justify-center w-full'>
               <div>
-                <KeyComponent group={"purple"} keyLabel='A'/>
-                <KeyComponent group={"green"} keyLabel="S"/>
-                <KeyComponent group={"red"} keyLabel="D"/>
-                <KeyComponent group={"blue"} keyLabel="F"/>
+                <img src={enLeft}/>
               </div>
               <div>
-                  <KeyComponent group={"purple"} keyLabel='J'/>
-                  <KeyComponent group={"green"} keyLabel="K"/>
-                  <KeyComponent group={"red"} keyLabel="L"/>
-                  <KeyComponent group={"blue"} keyLabel=";"/>
+                <img src={enRight}/>
               </div>
             </div>
             <div className=''>
