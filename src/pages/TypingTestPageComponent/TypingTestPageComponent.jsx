@@ -5,8 +5,9 @@ import { useTimer } from 'react-timer-hook';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAttemptReviewData } from '../../redux/testAttempt/testAttemptSlice';
 import { useNavigate } from 'react-router-dom';
+import KeyboardInterfaceComponent from '../../components/KeyboardInterfaceComponent/KeyboardInterfaceComponent';
 
-const ONE_MINUTE = 10
+const ONE_MINUTE = 60
 const SPEED_WEIGHT = 6
 const ACCURACY_WEIGHT = 4
 
@@ -14,6 +15,7 @@ const TypingTestPageComponent = () => {
   const [text, setText] = useState("");
   const [assessment, setAssessment] = useState("The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it a perfect practice tool for typing. As you type, focus on accuracy and speed. Remember to keep your hands positioned correctly on the keyboard, with your fingers resting on the home row keys. Typing is not just about speed; it is also about precision. Every keystroke should be deliberate and precise. Practice regularly to improve your muscle memory and typing skills. Over time, you will find yourself typing faster and with fewer errors. Stay patient and persistent, and you will see progress. Happy typing. The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it a perfect practice tool for typing. As you type, focus on accuracy and speed. Remember to keep your hands positioned correctly on the keyboard, with your fingers resting on the home row keys. Typing is not just about speed; it is also about precision. Every keystroke should be deliberate and precise. Practice regularly to improve your muscle memory and typing skills. Over time, you will find yourself typing faster and with fewer errors. Stay patient and persistent, and you will see progress. Happy typing. The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it a perfect practice tool for typing. As you type, focus on accuracy and speed. Remember to keep your hands positioned correctly on the keyboard, with your fingers resting on the home row keys. Typing is not just about speed; it is also about precision. Every keystroke should be deliberate and precise. Practice regularly to improve your muscle memory and typing skills. Over time, you will find yourself typing faster and with fewer errors. Stay patient and persistent, and you will see progress. Happy typing.".replaceAll(" ", '\u00A0')); // Example assessment
   const [isFocus, setIsFocus] = useState(true)
+  const [nextKey, setNextKey] = useState("")
 
   const dispatch = useDispatch()
 
@@ -94,7 +96,7 @@ const TypingTestPageComponent = () => {
 
   useEffect(() => {
     document.addEventListener("keypress", handleKeyPress);
-
+    setNextKey(assessment[text.length])
     if(text.length === 1){
       start()
     }
@@ -123,7 +125,7 @@ const TypingTestPageComponent = () => {
 
   return (
     <div className='typing-test-container flex justify-center h-screen'>
-      <div className='w-full max-w-[900px] px-5 md:px-10 flex flex-col gap-2'>
+      <div className='w-full max-w-[900px] px-5 md:px-10 flex flex-col gap-1'>
         <div className='typing-test-header-container flex flex-col gap-4'>
           <h1 className='text-3xl md:text-5xl font-semibold text-betatypeDarkBlue text-center'>Typing Test</h1>
           <p className='text-xl text-betatypeDarkBlue font-medium text-opacity-90 text-center'>Take up the 1 min test to determine your speed and accuracy in English typing</p>
@@ -145,9 +147,9 @@ const TypingTestPageComponent = () => {
             <button className='flex items-center hover:-translate-y-0.5 transition w-40 text-center focus:outline-none' onClick={handleRestart}><VscDebugRestart />Restart</button>
           </div>
 
-        <div className="keyboard-interface-container h-[200px] bg-green-200 w-full ">
+        <div className="keyboard-interface-container h-[200px] w-full ">
           {/* Keyboard interface can be implemented here */}
-          <h1>helo{isRunning ? "running" : "not running"}</h1>
+          <KeyboardInterfaceComponent nextKey={nextKey}/>
         </div>
 
       </div>
