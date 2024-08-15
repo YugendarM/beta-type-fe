@@ -113,10 +113,6 @@ const TypingTestPageComponent = () => {
   }, [text]);
 
   useEffect(() => {
-    
-  },[text])
-
-  useEffect(() => {
     window.addEventListener('beforeunload', handleFocusBlur)
     document.addEventListener('visibilitychange', handleFocusBlur);
     return () => {

@@ -7,10 +7,6 @@ import enLeft from "../../assets/en_left.svg"
 import enRight from "../../assets/en_right.svg"
 
 const LearnPageComponent = () => {
-
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, [])
   
   return (
     <React.Fragment>
