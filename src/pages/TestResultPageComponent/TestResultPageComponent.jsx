@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { MdOutlineShutterSpeed } from "react-icons/md";
 import { AiOutlineAim } from "react-icons/ai";
@@ -12,11 +12,6 @@ const TestResultPageComponent = () => {
 
     const attemptReview = useSelector((state) => state.testAttempt)
     const userData = useSelector((state) => state.user)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-       dispatch(updateScore({speed:attemptReview.data.speed, accuracy: attemptReview.data.accuracy, betaScore: attemptReview.data.betaScore}))
-    }, [])
     
   return (
     <div className='result-page-container flex justify-center'>
@@ -57,7 +52,7 @@ const TestResultPageComponent = () => {
                                 <span className='text-base text-white opacity-70 mb-1 font-medium'>WPM</span>
                             </div>
                             {
-                                userData.data && userData.data.topSpeed && 
+                                userData.data && userData.data.topSpeed > 0 && 
                                 <div>
                                     <p className='text-sm text-white opacity-70 mb-1 font-medium'>YOUR BEST {userData.data.topSpeed && userData.data.topSpeed} WPM</p>
                                 </div>
@@ -75,7 +70,7 @@ const TestResultPageComponent = () => {
                                 <span className='text-base text-white opacity-70 mb-1 font-medium'>%</span>
                             </div>
                             {
-                                userData.data && userData.data.topAccuracy && 
+                                userData.data && userData.data.topAccuracy > 0 && 
                                 <div>
                                     <p className='text-sm text-white opacity-70 mb-1 font-medium'>YOUR BEST {userData.data.topAccuracy && userData.data.topAccuracy}%</p>
                                 </div>

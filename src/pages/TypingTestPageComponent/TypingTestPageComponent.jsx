@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAttemptReviewData } from '../../redux/testAttempt/testAttemptSlice';
 import { useNavigate } from 'react-router-dom';
 import KeyboardInterfaceComponent from '../../components/KeyboardInterfaceComponent/KeyboardInterfaceComponent';
+import { updateScore } from '../../redux/user/userSlice';
 
 const ONE_MINUTE = 60
 const SPEED_WEIGHT = 6
@@ -64,6 +65,7 @@ const TypingTestPageComponent = () => {
     })
     const accuracy = Number(((correctCount / text.length) * 100).toFixed(1))
     const betaScore = Number(((wordsCount * SPEED_WEIGHT) + (accuracy * ACCURACY_WEIGHT)).toFixed(0)) 
+    dispatch(updateScore({speed:wordsCount, accuracy: accuracy, betaScore: betaScore})) 
     dispatch(setAttemptReviewData({speed: wordsCount, accuracy: Number(accuracy), betaScore: Number(betaScore)}))
     navigate("/typing-test/result")
   }
