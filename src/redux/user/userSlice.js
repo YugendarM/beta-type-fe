@@ -81,9 +81,29 @@ export const getUserDetails = createAsyncThunk(
 export const updateScore = createAsyncThunk(
     'user/updateScore',
     async (scoreData, {rejectWithValue}) => {
-        console.log(scoreData)
         try{
             const response = await axios.put("http://localhost:3500/api/v1/user/updateScore", scoreData,
+                {
+                    withCredentials: true
+                }
+            )
+            return response.data
+        }
+        catch(error){
+            if (!error.response) {
+                return rejectWithValue('Network error. Please try again later.');
+            } else {
+                return rejectWithValue(error.response.data.message || 'An error occurred updating the scores');
+            }
+        }
+    }
+)
+
+export const updateEducationResult = createAsyncThunk(
+    'user/updateEducationResult',
+    async(educationResult, {rejectWithValue}) => {
+        try{
+            const response = await axios.put("http://localhost:3500/api/v1/user/updateEducationResults", educationResult,
                 {
                     withCredentials: true
                 }

@@ -3,7 +3,7 @@ import React from "react";
 const TutorTypingInterfaceComponent = ({ assessment, text }) => {
   return (
     <div className="relative w-full whitespace-nowrap">
-      {assessment.split("").map((letter, index) => {
+      {assessment && assessment.split("").map((letter, index) => {
         const userLetter = text[index] || "";
 
         let spanClass = 'text-3xl font-semibold px-[2px] py-[1px] mx-0.5 font-mono';

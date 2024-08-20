@@ -5,7 +5,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import {persistReducer} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import scoreBoardReducer from "./scoreBoard/scoreBoardSlice";
-
+import lessonReducer from "./lesson/lessonSlice";
 
 const persistConfig = {
     key: 'root',
@@ -17,7 +17,8 @@ const persistConfig = {
 const combinedReducer = combineReducers({
     user: userReducer,
     testAttempt: testAttemptReducer,
-    scoreBoard: scoreBoardReducer
+    scoreBoard: scoreBoardReducer,
+    lesson: lessonReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer)
