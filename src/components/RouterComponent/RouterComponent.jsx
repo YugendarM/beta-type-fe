@@ -21,13 +21,13 @@ const RouterComponent = () => {
         <Route path='/typing-test/result' element={<TestResultPageComponent/>}/>
         <Route path='/typing-tutor' element={<TypingTutorPageComponent/>}/>
         <Route path='/learn' element={<LearnPageComponent/>}/>
-        <Route path='/profile' element={<ProfilePageComponent/>}/>
+        <Route path="/profile/*" element={<ProfilePageComponent />} />
         <Route path='/leader-board' element={<LeaderBoardPageComponent/>}/>
         <Route path='/login' element={<LoginPageComponent/>}/>
         <Route path='/signup' element={<SignupPageComponent/>}/>
         <Route path='/about' element={<AboutPageComponent/>}/>
         <Route path='/contact' element={<ContactPageComponent/>}/>
-        <Route path='/*' element={<ErrorPageComponent/>}/>
+        {/* <Route path='/*' element={<ErrorPageComponent/>}/> */}
       </Routes>
   )
 }
