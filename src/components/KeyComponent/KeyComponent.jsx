@@ -32,7 +32,7 @@ const KeyComponent = ({ group, keyLabel, nextKey }) => {
   };
 
   const baseClasses = colorClasses[group] || '';
-  const dynamicShadowClass = nextKey.toUpperCase() === keyLabel ? shadowClasses[group] : '';
+  const dynamicShadowClass = nextKey && nextKey.toUpperCase() === keyLabel ? shadowClasses[group] : '';
   const widthClass = widthClasses[keyLabel] || widthClasses.default;
 
   const classes = `${baseClasses} ${dynamicShadowClass} ${widthClass}`;
@@ -41,7 +41,7 @@ const KeyComponent = ({ group, keyLabel, nextKey }) => {
     <div className='inline-block mx-0.5 md:mx-0.5 my-0.5'>
       <p
         className={`h-10 font-medium flex items-center justify-center rounded-lg ${classes} inline-block
-        ${nextKey.toUpperCase() === keyLabel ? 'border-2' : ''}`}
+        ${nextKey && nextKey.toUpperCase() === keyLabel ? 'border-2' : ''}`}
       >
         {keyLabel}
       </p>
