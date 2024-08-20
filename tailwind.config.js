@@ -40,6 +40,10 @@ export default {
         betatypeScoreCardPink: "#ED81BA",
         betatypeScoreCardOrange: "#FF9E31",
 
+        betatypePrimaryPurple: "#AF52DE",
+        betatypePrimaryDarkPurple: "#57296F",
+        betatypePrimaryOrange: "#FF9500",
+        betatypePrimaryDarkOrange: "#804A00"
       },
       boxShadow: {
         'button': '0px 3px 0px 0px #FFCC00',
@@ -54,6 +58,7 @@ export default {
         'keyOrange': '0px 3px 0px 0px #804A00',
         'keyGray': '0px 3px 0px 0px #4B5563',
         'custom': '0px 0px 40px rgba(0, 0, 0, 0.1), 0 0px 40px rgba(0, 0, 0, 0.08)',
+        'left-only': '-10px 0 15px -3px rgba(0, 0, 0, 0.1), -10px 0 6px -2px rgba(0, 0, 0, 0.05)',
       },
       keyframes: {
         fall: {

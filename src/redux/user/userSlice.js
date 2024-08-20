@@ -19,6 +19,25 @@ export const loginUser = createAsyncThunk(
     }
 );
 
+export const logoutUser = createAsyncThunk(
+    'user/logoutUser',
+    async (_, {rejectWithValue}) => {
+        try{
+            const response = await axios.post('http://localhost:3500/api/v1/auth/logout',{}, {
+                withCredentials: true
+            })
+            return response.data
+        }
+        catch(error){
+            if (!error.response) {
+                return rejectWithValue('Network error. Please try again later.');
+            } else {
+                return rejectWithValue(error.response.data.message );
+            }
+        }
+    }
+)
+
 export const registerUser = createAsyncThunk(
     'user/registerUser',
     async (userCredentials, { rejectWithValue }) => {
@@ -101,6 +120,20 @@ const userSlice = createSlice({
                 state.loading = false
                 state.error = action.error.message
             })
+
+            .addCase(logoutUser.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(logoutUser.fulfilled, (state, action) => {
+                state.loading = false,
+                state.data = {},
+                state.error = ""
+            })
+            .addCase(logoutUser.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.error.message
+            })
+
             .addCase(registerUser.pending, (state) => {
                 state.loading = true
             })
@@ -112,6 +145,7 @@ const userSlice = createSlice({
                 state.loading = false
                 state.error = action.payload || action.error.message
             })
+
             .addCase(getUserDetails.pending, (state, action) => {
                 state.loading = true
             })

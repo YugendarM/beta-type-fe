@@ -37,7 +37,7 @@ const ScoreCardComponent = ({user, index}) => {
       <p className='w-1/6 flex justify-center items-center text-betatypeDarkBlue text-xl font-semibold'>{user.topSpeed} <span className='font-medium text-lg'>wpm</span></p>
       <p className='w-1/6 flex justify-center items-center text-betatypeDarkBlue text-xl font-medium'>{user.topAccuracy}%</p>
       <div className='w-1/6 flex justify-center items-center'>
-        <div className='flex justify-end gap-1'>
+        <div className='flex items-center justify-end gap-1'>
             <p className='text-betatypeDarkBlue text-xl font-medium'>{user.betaScore}</p>
             <FaBoltLightning className='text-betatypeDarkYellow text-xl'/>
         </div>
