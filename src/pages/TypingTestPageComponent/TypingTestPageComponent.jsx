@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import KeyboardInterfaceComponent from '../../components/KeyboardInterfaceComponent/KeyboardInterfaceComponent';
 import { updateScore } from '../../redux/user/userSlice';
 
-const ONE_MINUTE = 60
+const ONE_MINUTE = 10
 const SPEED_WEIGHT = 6
 const ACCURACY_WEIGHT = 4
 
@@ -123,7 +123,7 @@ const TypingTestPageComponent = () => {
 
   return (
     <div className='typing-test-container flex justify-center h-screen'>
-      <div className='w-full max-w-[900px] px-5 md:px-10 flex flex-col gap-1'>
+      <div className='w-full max-w-[900px] px-5 md:px-10 flex flex-col gap-[1%]'>
         <div className='typing-test-header-container flex flex-col gap-4'>
           <h1 className='text-3xl md:text-5xl font-semibold text-betatypeDarkBlue text-center'>Typing Test</h1>
           <p className='text-xl text-betatypeDarkBlue font-medium text-opacity-90 text-center'>Take up the 1 min test to determine your speed and accuracy in English typing</p>

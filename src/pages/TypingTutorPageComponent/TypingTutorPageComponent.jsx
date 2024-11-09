@@ -4,11 +4,10 @@ import KeyboardInterfaceComponent from '../../components/KeyboardInterfaceCompon
 import hands from "../../assets/hands.svg"
 import { AiOutlineAim } from 'react-icons/ai'
 import { BiErrorCircle } from "react-icons/bi";
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLessonData } from '../../redux/lesson/lessonSlice'
-import axios from 'axios'
-import { updateEducationResult } from '../../redux/user/userSlice'
+import { getUserDetails, updateEducationResult } from '../../redux/user/userSlice'
 
 const TypingTutorPageComponent = () => {
   const [assessment, setAssessment] = useState("") 
@@ -24,6 +23,8 @@ const TypingTutorPageComponent = () => {
   const dispatch = useDispatch()
   const lessonData = useSelector((state) => state.lesson.data)
   const userData = useSelector((state) => state.user.data)
+
+  const navigate = useNavigate()
 
   const handleKeyPress = (event) => {
     if (event.key === " ") {
@@ -49,18 +50,23 @@ const TypingTutorPageComponent = () => {
     const accuracy = Number(((correctCount / userInput.length) * 100).toFixed(1))
     const typos = assessment.length - correctCount
     setResult({accuracy: accuracy, typos: typos})
-    dispatch(updateEducationResult({lesson: lessonData.lesson, accuracy: accuracy}))
+    dispatch(updateEducationResult({lesson: lessonData[0].lesson, accuracy: accuracy}))
   }
 
   const handleLessonInitialize = () => {
-    if (lessonData && lessonData.content) {
-      const formattedContent = lessonData.content.replaceAll(" ", '\u00A0');
+    if (lessonData && lessonData[0]?.content) {
+      const formattedContent = lessonData[0]?.content.replaceAll(" ", '\u00A0');
       setAssessment(formattedContent);
     }
   }
 
   const handleNext = () => {
-    window.location.href = "/typing-tutor"
+    setIsResultVisible(false)
+    dispatch(getUserDetails())
+    navigate("/typing-tutor")
+    setUserInput("")
+    // const nextLesson =  lessonData[0]?.lesson + 1
+    // nextLesson && dispatch(getLessonData({lessonNumber: nextLesson}))
   }
 
   const handleTryAgain = () => {
@@ -97,6 +103,7 @@ const TypingTutorPageComponent = () => {
   }, [userInput]) 
 
   const nextLesson =  userData && userData.lessonsCompleted + 1
+  console.log(nextLesson)
   useEffect(() => {
      nextLesson && dispatch(getLessonData({lessonNumber: nextLesson}))
   }, [userData])
@@ -111,7 +118,7 @@ const TypingTutorPageComponent = () => {
         <div className='typing-test-header-container flex flex-col gap-4'>
           <h1 className='text-3xl md:text-5xl font-semibold text-betatypeDarkBlue text-center'>Typing Tutor</h1>
           <p className='text-xl text-betatypeDarkBlue font-medium text-opacity-90 text-center'>Take up these beginner lessons to get familiarized with touch typing practice.</p>
-          <p className='text-xl text-betatypeDarkBlue font-medium text-opacity-90 text-center'>Continue from where you left... <span className='font-bold text-opacity-100'>Lesson : {lessonData && lessonData.lesson}</span></p>
+          <p className='text-xl text-betatypeDarkBlue font-medium text-opacity-90 text-center'>Continue from where you left... <span className='font-bold text-opacity-100'>Lesson : {lessonData && lessonData[0]?.lesson}</span></p>
         </div>
 
         <div className={`typing-interface-container rounded-xl shadow-custom w-full px-10 py-2 overflow-hidden flex items-center`}>
@@ -148,7 +155,7 @@ const TypingTutorPageComponent = () => {
           </div>
           : 
           <div className='flex flex-col items-center gap-10 w-full py-6 pb-14'>
-            <h1 className='text-xl md:text-3xl font-semibold text-betatypeDarkBlue text-center'>Hurray! Lesson 1 Completed</h1>
+            <h1 className='text-xl md:text-3xl font-semibold text-betatypeDarkBlue text-center'>Hurray! Lesson {lessonData[0]?.lesson} Completed</h1>
 
             <div className='flex items-center gap-10'>
               <div className='speed-container bg-betatypePrimaryPurple flex flex-col items-center w-48 rounded-2xl'>

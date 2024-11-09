@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axiosInstance from "../../utils/AxiosInstance/AxiosInstance";
 
 export const getUsersBasedOnTopSpeed = createAsyncThunk(
     "scoreBoard/getUsersBasedOnTopSpeed",
     async(_, {rejectWithValue}) => {
         try{
-            const response = await axios.get("http://localhost:3500/api/v1/user/getUsersBasedOnTopSpeed")
+            const response = await axiosInstance.get("/user/getUsersBasedOnTopSpeed")
             return response.data
         }
         catch(error){
@@ -22,7 +22,7 @@ export const getUsersBasedOnTopBetaScore = createAsyncThunk(
     'scoreBoard/getUsersBasedOnTopBetaScore',
     async(_, {rejectWithValue}) => {
         try{
-            const response = await axios.get("http://localhost:3500/api/v1/user/getUsersBasedOnTopBetaScore")
+            const response = await axiosInstance.get("/user/getUsersBasedOnTopBetaScore")
             return response.data
         }
         catch(error){

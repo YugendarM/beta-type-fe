@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { MdOutlineVisibility } from "react-icons/md";
 import { MdOutlineVisibilityOff } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/user/userSlice';
@@ -14,15 +14,21 @@ const LoginPageComponent = () => {
     password: ""
   })
 
+  const navigate = useNavigate()
+
   const dispatch = useDispatch()
   const userState = useSelector((state) => state.user)
 
   const handleLogin = async(event) => {
     event.preventDefault()
     try {
-        await dispatch(loginUser(userCredential)).unwrap();
-        alert("User logged in successfully");
-        window.location.href = "/";
+        const response = await dispatch(loginUser(userCredential)).unwrap();
+        console.log("response")
+        console.log(response)
+        if(response?.message === "Login successfull"){
+          alert("User logged in successfully");
+          navigate("/")
+        }
     } catch (error) {
         alert(error);
     }

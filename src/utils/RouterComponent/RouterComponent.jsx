@@ -12,22 +12,29 @@ import AboutPageComponent from '../../pages/AboutPageComponent/AboutPageComponen
 import ContactPageComponent from '../../pages/ContactPageComponent/ContactPageComponent'
 import ErrorPageComponent from '../../pages/ErrorPageComponent/ErrorPageComponent'
 import TestResultPageComponent from '../../pages/TestResultPageComponent/TestResultPageComponent'
+import ProtectedRoutes from '../ProtectedRoutes/ProtectedRoutes'
 
 const RouterComponent = () => {
   return (
     <Routes>
         <Route exact path='/' element={<HomePageComponent/>}/>
-        <Route path='/typing-test' element={<TypingTestPageComponent/>}/>
-        <Route path='/typing-test/result' element={<TestResultPageComponent/>}/>
-        <Route path='/typing-tutor' element={<TypingTutorPageComponent/>}/>
-        <Route path='/learn' element={<LearnPageComponent/>}/>
-        <Route path="/profile/*" element={<ProfilePageComponent />} />
-        <Route path='/leader-board' element={<LeaderBoardPageComponent/>}/>
         <Route path='/login' element={<LoginPageComponent/>}/>
         <Route path='/signup' element={<SignupPageComponent/>}/>
         <Route path='/about' element={<AboutPageComponent/>}/>
         <Route path='/contact' element={<ContactPageComponent/>}/>
-        {/* <Route path='/*' element={<ErrorPageComponent/>}/> */}
+        <Route path='/learn' element={<LearnPageComponent/>}/>
+        <Route path='/leader-board' element={<LeaderBoardPageComponent/>}/>
+        <Route element={<ProtectedRoutes/>}>
+          <Route path='/typing-test' element={<TypingTestPageComponent/>}/>
+          <Route path='/typing-test/result'  element={<TestResultPageComponent/>}/>
+          <Route path='/typing-tutor' element={<TypingTutorPageComponent/>}/>
+          <Route path="/profile/*" element={<ProfilePageComponent />} />
+        </Route>
+        
+        
+        
+        
+        <Route path='/*' element={<ErrorPageComponent/>}/>
       </Routes>
   )
 }

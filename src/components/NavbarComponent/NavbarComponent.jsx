@@ -5,10 +5,9 @@ import defaultProfile from "../../assets/default_profile.png"
 import avatar from "../../assets/avatar.svg"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
-import RouterComponent from '../RouterComponent/RouterComponent'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails } from '../../redux/user/userSlice'
-import axios from 'axios'
+import RouterComponent from "../../utils/RouterComponent/RouterComponent"
 
 const NavbarComponent = () => {
 

@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axiosInstance from "../../utils/AxiosInstance/AxiosInstance";
 
 export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (userCredentials, { rejectWithValue }) => {
         try {
-            const response = await axios.post('http://localhost:3500/api/v1/auth/login', userCredentials, {
-                withCredentials: true
-            });
+            // const response = await axiosInstance.post('/auth/login', userCredentials);
+            const response = await axiosInstance.post('/auth/login', userCredentials);
             return response.data;
         } catch (error) {
             if (!error.response) {
@@ -23,10 +22,8 @@ export const logoutUser = createAsyncThunk(
     'user/logoutUser',
     async (_, {rejectWithValue}) => {
         try{
-            const response = await axios.post('http://localhost:3500/api/v1/auth/logout',{}, {
-                withCredentials: true
-            })
-            return response.data
+            const response = await axiosInstance.post('/auth/logout',{})
+return response.data
         }
         catch(error){
             if (!error.response) {
@@ -42,10 +39,8 @@ export const registerUser = createAsyncThunk(
     'user/registerUser',
     async (userCredentials, { rejectWithValue }) => {
         try {
-            const response = await axios.post('http://localhost:3500/api/v1/auth/signup', userCredentials, {
-                withCredentials: true
-            });
-            return response.data;
+            const response = await axiosInstance.post('/auth/signup', userCredentials);
+return response.data;
         } catch (error) {
             if (!error.response) {
                 return rejectWithValue('Network error. Please try again later.');
@@ -63,10 +58,8 @@ export const getUserDetails = createAsyncThunk(
     'user/getUserDetails',
     async (_, {rejectWithValue}) => {
         try{
-            const response = await axios.get("http://localhost:3500/api/v1/user/getUserDetails", {
-                withCredentials: true
-            })
-            return response.data
+            const response = await axiosInstance.get("/user/getUserDetails")
+return response.data
         }
         catch(error){
             if (!error.response) {
@@ -82,12 +75,9 @@ export const updateScore = createAsyncThunk(
     'user/updateScore',
     async (scoreData, {rejectWithValue}) => {
         try{
-            const response = await axios.put("http://localhost:3500/api/v1/user/updateScore", scoreData,
-                {
-                    withCredentials: true
-                }
-            )
-            return response.data
+            const response = await axiosInstance.put("/user/updateScore", scoreData)
+            // console.log(response)
+return response.data
         }
         catch(error){
             if (!error.response) {
@@ -103,12 +93,9 @@ export const updateEducationResult = createAsyncThunk(
     'user/updateEducationResult',
     async(educationResult, {rejectWithValue}) => {
         try{
-            const response = await axios.put("http://localhost:3500/api/v1/user/updateEducationResults", educationResult,
-                {
-                    withCredentials: true
-                }
-            )
-            return response.data
+            const response = await axiosInstance.put("/user/updateEducationResults", educationResult )
+            console.log(response)
+return response.data
         }
         catch(error){
             if (!error.response) {
@@ -124,6 +111,7 @@ const userSlice = createSlice({
     name: "user",
     initialState: {
         loading: false,
+        isLoggedIn: false,
         data: {},
         error: ""
     },
@@ -134,7 +122,8 @@ const userSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.loading = false
-                state.error = ""
+                state.isLoggedIn = true
+                state.error = "no error"
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.loading = false
@@ -147,6 +136,7 @@ const userSlice = createSlice({
             .addCase(logoutUser.fulfilled, (state, action) => {
                 state.loading = false,
                 state.data = {},
+                state.isLoggedIn = false
                 state.error = ""
             })
             .addCase(logoutUser.rejected, (state, action) => {
@@ -172,6 +162,7 @@ const userSlice = createSlice({
             .addCase(getUserDetails.fulfilled, (state, action) => {
                 state.loading = false
                 state.data = action.payload
+                state.isLoggedIn = true
                 state.error = ""
             })
             .addCase(getUserDetails.rejected, (state, action) => {

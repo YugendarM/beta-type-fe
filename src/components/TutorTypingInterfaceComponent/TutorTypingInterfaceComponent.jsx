@@ -2,7 +2,7 @@ import React from "react";
 
 const TutorTypingInterfaceComponent = ({ assessment, text }) => {
   return (
-    <div className="relative w-full whitespace-nowrap">
+    <div className="relative w-full whitespace-nowrap hover:cursor-default ">
       {assessment && assessment.split("").map((letter, index) => {
         const userLetter = text[index] || "";
 

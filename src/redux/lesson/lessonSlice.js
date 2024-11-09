@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+
+import axiosInstance from "../../utils/AxiosInstance/AxiosInstance";
 
 export const getLessonData = createAsyncThunk(
     "lesson/getLessonData",
     async ({lessonNumber}, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:3500/api/v1/lesson/getLesson/${lessonNumber}`, {
-                withCredentials: true
-            });
+            const response = await axiosInstance.get(`/lesson/getLesson/${lessonNumber}`);
+            console.log(response)
             return response.data;
         } catch (error) {
             if (!error.response) {
