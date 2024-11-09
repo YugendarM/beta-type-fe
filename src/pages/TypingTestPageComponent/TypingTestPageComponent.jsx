@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import KeyboardInterfaceComponent from '../../components/KeyboardInterfaceComponent/KeyboardInterfaceComponent';
 import { updateScore } from '../../redux/user/userSlice';
 
-const ONE_MINUTE = 10
+const ONE_MINUTE = 60
 const SPEED_WEIGHT = 6
 const ACCURACY_WEIGHT = 4
 
