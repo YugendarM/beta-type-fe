@@ -23,8 +23,6 @@ const LoginPageComponent = () => {
     event.preventDefault()
     try {
         const response = await dispatch(loginUser(userCredential)).unwrap();
-        console.log("response")
-        console.log(response)
         if(response?.message === "Login successfull"){
           alert("User logged in successfully");
           navigate("/")

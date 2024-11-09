@@ -76,7 +76,7 @@ export const updateScore = createAsyncThunk(
     async (scoreData, {rejectWithValue}) => {
         try{
             const response = await axiosInstance.put("/user/updateScore", scoreData)
-            // console.log(response)
+            // console.(response)
 return response.data
         }
         catch(error){
@@ -94,7 +94,6 @@ export const updateEducationResult = createAsyncThunk(
     async(educationResult, {rejectWithValue}) => {
         try{
             const response = await axiosInstance.put("/user/updateEducationResults", educationResult )
-            console.log(response)
 return response.data
         }
         catch(error){

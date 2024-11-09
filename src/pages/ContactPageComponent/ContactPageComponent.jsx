@@ -19,7 +19,6 @@ const ContactPageComponent = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(userData)
   }
 
   return (

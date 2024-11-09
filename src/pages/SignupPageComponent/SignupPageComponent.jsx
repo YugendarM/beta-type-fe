@@ -20,7 +20,6 @@ const SignupPageComponent = () => {
 
   const handleSignup = async(event) => {
     event.preventDefault()
-    console.log(userCredential)
     try {
       await dispatch(registerUser(userCredential)).unwrap();
       alert("User registered successfully");

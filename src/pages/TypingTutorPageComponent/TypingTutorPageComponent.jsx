@@ -103,7 +103,6 @@ const TypingTutorPageComponent = () => {
   }, [userInput]) 
 
   const nextLesson =  userData && userData.lessonsCompleted + 1
-  console.log(nextLesson)
   useEffect(() => {
      nextLesson && dispatch(getLessonData({lessonNumber: nextLesson}))
   }, [userData])

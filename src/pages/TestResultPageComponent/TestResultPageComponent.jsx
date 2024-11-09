@@ -12,7 +12,6 @@ const TestResultPageComponent = () => {
 
     const attemptReview = useSelector((state) => state.testAttempt)
     const userData = useSelector((state) => state.user)
-    console.log(userData.data.name)
     
   return (
     <div className='result-page-container flex justify-center'>
