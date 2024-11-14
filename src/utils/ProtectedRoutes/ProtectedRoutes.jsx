@@ -12,7 +12,7 @@ const ProtectedRoutes = () => {
       setIsLoggedIn(userData.isLoggedIn)
     }, [userData.isLoggedIn])
 
-  return true ? <Outlet/> : <Navigate to={"/login"}/>
+  return isLoggedIn ? <Outlet/> : <Navigate to={"/login"}/>
 }
 
 export default ProtectedRoutes
